@@ -1,0 +1,12 @@
+.idea
+node_modules
+# Keep environment variables out of version control
+.env
+service-account.json
+
+cicd/development/mysql/.data
+lib/schemas
+lib/apis.ts
+lib/dist
+lib/package.json
+dist

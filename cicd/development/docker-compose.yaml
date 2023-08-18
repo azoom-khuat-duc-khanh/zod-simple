@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  zod-simple-mysql:
+    image: mysql:8
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./mysql/.data:/var/lib/mysql
+      - ./mysql/initdb:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: zod-simple
+      MYSQL_ROOT_PASSWORD: xx21231231xx
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default_authentication_plugin=mysql_native_password
+    networks:
+      - zod-network
+    container_name: zod-simple-mysql
+
+networks:
+  zod-network:
