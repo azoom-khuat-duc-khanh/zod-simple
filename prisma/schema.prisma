@@ -27,6 +27,8 @@ model User {
   id         Int      @id @default(autoincrement())
   name       String?
   email      String? /// @zod.custom.use(validateEmail({ message: "Khong phai email" }))
+  tel        String? 
+  username   String? 
   
   @@map("users")
 }

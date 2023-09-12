@@ -3,19 +3,6 @@ import { globSync } from 'glob'
 import { z } from 'zod'
 import { makeApi, Method, ZodiosEndpointDefinition, ZodiosEndpointError } from '@zodios/core'
 
-export const userApi = makeApi([
-  {
-    method: "get",
-    path: "/users", 
-    alias: "getUser",
-    description: "Get a user",
-    response: z.object({
-      id: z.number(),
-      name: z.string(),
-    }).array(),
-  },
-]);
-
 export interface GenerateApisOptions {
   routeFolder?: string
 }
@@ -55,12 +42,12 @@ function prepareApiDefinitionConfig({ routeFolder }: { routeFolder: string }): P
 
   return Promise.all(
     globSync(filePattern, { cwd: formattedRouteFolder })
-      .filter(path =>
+      .filter((path: any )=>
         ['head', 'options', 'get', 'post', 'put', 'patch', 'delete'].includes(
           basename(path, extname(path)).toLowerCase()
         )
       )
-      .map(async path => ({
+      .map(async (path: any) => ({
         path,
         fullFilePath: `${formattedRouteFolder}/${path}`,
         apiPath: `/${path

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
     "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "node",
@@ -21,4 +22,5 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "exclude": ["lib/abo/dist"]
 }

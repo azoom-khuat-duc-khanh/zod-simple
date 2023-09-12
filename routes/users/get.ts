@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { prisma } from '../../database'
+import { prisma } from '@root/database'
 
 export const apiDefinition = {
   alias: 'createStaff',
